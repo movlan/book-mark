@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from "react-router-dom";
+
+import "./App.css";
+
+import { AuthContextProvider } from "./store/auth-ctx";
+
+import LoginSignup from "./pages/LoginSignup/LoginSignup";
+import AddBook from "./pages/AddBook/AddBook";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthContextProvider>
+        <Navbar />
+        <Switch>
+          <Route path="/login">
+            <LoginSignup login={true} />
+          </Route>
+          <Route path="/signup">
+            <LoginSignup login={false} />
+          </Route>
+          <Route path="/add-book">
+            <AddBook />
+          </Route>
+        </Switch>
+        <Footer />
+      </AuthContextProvider>
     </div>
   );
 }
