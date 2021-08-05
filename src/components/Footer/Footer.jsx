@@ -6,7 +6,8 @@ const Footer = () => {
       &copy;{" "}
       <a className={styles.link} href="https://bahram.dev">
         Bahram Movlanov
-      </a>
+      </a>{" "}
+      2021
     </footer>
   );
 };

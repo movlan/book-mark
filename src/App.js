@@ -8,6 +8,7 @@ import LoginSignup from "./pages/LoginSignup/LoginSignup";
 import AddBook from "./pages/AddBook/AddBook";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import MyBooks from "./pages/MyBooks/MyBooks";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
       <AuthContextProvider>
         <Navbar />
         <Switch>
+          <Route path="/my-books">
+            <MyBooks />
+          </Route>
           <Route path="/login">
             <LoginSignup login={true} />
           </Route>
